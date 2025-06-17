@@ -1,0 +1,6 @@
+animation ändern
+bug : too fast pressing on links shows multiple tab contents
+horizontal scrolling fix
+remove all shading
+window around all text for higher contrast
+js tutorial
