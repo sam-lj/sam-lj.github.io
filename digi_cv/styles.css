@@ -9,11 +9,11 @@
 }
 body {
   font-family: "Segoe UI", sans-serif;
-  color: #111;
+  color: #FBE4D8;
   line-height: 1.5;
   text-shadow: 0 1px 4px rgba(0,0,0,0.7);
   overflow-x: visible;
-  background: #2500BB;
+  background: #190019;
 }
 html, body {
   min-width: 100vw;
@@ -51,8 +51,8 @@ body > * {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 3rem;
-  background: #1A0082 !important;
-  color: #fff !important;
+  background: #2B124C !important;
+  color: #FBE4D8 !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +69,7 @@ body > * {
   gap: 0.7rem;
 }
 .banner__name, .banner__role {
-  color: #8800D1 !important;
+  color: #FBE4D8 !important;
   margin: 0;
 }
 .banner__name {
@@ -88,7 +88,7 @@ body > * {
   left: 0; right: 0;
   height: auto;
   min-height: 2.5rem;
-  background: #0E0048 !important;
+  background: #522B2B !important;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   z-index: 999;
   padding: 0.2rem 0;
@@ -113,7 +113,7 @@ body > * {
 }
 .tabs__list a {
   text-decoration: none;
-  color: #fff !important;
+  color: #FBE4D8 !important;
   padding: 0.3rem;
   transition: color 0.2s, border-bottom 0.2s;
 }
@@ -213,7 +213,7 @@ main ul {
 /* ========== Typography ========== */
 /* Headings and paragraphs. Color override for readability. */
 h1, h2, h3, h4, h5, h6, p {
-  color: #111 !important;
+  color: #FBE4D8 !important;
   text-shadow: none !important;
 }
 h1 {
@@ -228,7 +228,7 @@ h3 {
 p {
   margin: 0.5rem 0;
   font-size: 1rem;
-  color: #fff !important;
+  color: #FBE4D8 !important;
   text-shadow: none !important;
 }
 
@@ -281,7 +281,7 @@ p {
   background: rgba(34, 0, 102, 0.85);
   border: 3px solid #8800D1;
   border-radius: 0.5rem;
-  color: #fff !important;
+  color: #FBE4D8 !important;
   padding: 1rem 1.5rem;
   margin: 1.2rem 0 1.2rem 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
@@ -370,7 +370,7 @@ p {
   }
   .about-portrait {
     position: absolute;
-    top: 1rem;
+    top: 2rem;
     right: 1rem;
     width: 210px;
     height: 230px;
@@ -460,7 +460,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, main::-webkit-scrollbar, #abou
 /* ========== Color and Theme Overrides ========== */
 /* Ensures consistent color scheme. Fixes color bugs on some browsers. */
 body, main, main section {
-  background: #4400CC !important;
+  background: #0E0048 !important;
   color: #fff !important;
 }
 .banner {
@@ -565,4 +565,46 @@ body::before, #bg-fade-overlay {
 }
 #link-tree a:hover, #link-tree a:focus {
   color: #8800D1 !important;
+}
+
+/* ========== Color Palette Update ========== */
+:root {
+  --header-color: #DFB6B2;
+  --main-bg: #190019;
+  --normal-text: #FBE4D8;
+  --banner-bg: #2B124C;
+  --tab-banner-bg: #522B5B;
+}
+
+body {
+  background: var(--main-bg);
+  color: var(--normal-text);
+}
+
+/* Banner/Header */
+.banner {
+  background: var(--banner-bg) !important;
+  color: var(--normal-text) !important;
+}
+.banner__name, .banner__role {
+  color: var(--normal-text) !important;
+}
+
+/* Tab Banner */
+.tabs {
+  background: var(--main-bg) !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #DFB6B2 !important;
+  text-shadow: none !important;
+}
+
+/* Normal text inside contrast windows and role/name */
+p, main, .banner__name, .banner__role {
+  color: var(--normal-text) !important;
+}
+ .banner__name, .banner__role {
+  color: var(--header-color) !important;
 }
