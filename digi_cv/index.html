@@ -1,21 +1,26 @@
-#im bored 
+<!-- Main HTML structure for digital CV -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta and title -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Your Name – Profile</title>
+  <!-- Link to main stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Header: Banner with name and role -->
   <header class="banner">
     <div class="banner__info">
       <h1 class="banner__name">saj</h1>
       <p class="banner__role">student/intern</p>
     </div>
   </header>
+  <!-- Navigation tabs for sections -->
   <nav class="tabs">
     <ul class="tabs__list">
+      <!-- Each tab links to a section below. 'active' class shows which is visible. -->
       <li><a href="#about" class="active">About Me</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -24,6 +29,7 @@
     </ul>
   </nav>
   <main>
+    <!-- About Me Section: Shows portrait and bio -->
     <section id="about" class="active">
       <h2>About Me</h2>
       <div class="about-portrait">
@@ -31,24 +37,27 @@
         <div class="about-portrait-desc">X-Portrait, 11.06.2025</div>
       </div>
       <p>Bio</p>
-    </section>
+      </section>
+    <!-- Experience Section: Table for jobs/education -->
     <section id="experience">
       <h2>Experience</h2>
       <table class="info-table">
         <tr><th>Company</th><th>Position</th><th>Duration</th><th>Description</th></tr>
-        <tr><td>School</td><td>Student</td><td>2010–2022</td><td>General education</td></tr>
+        <tr><td>School</td><td>Student</td><td>2010-2022</td><td>General education</td></tr>
         <tr><td>Opel</td><td>Intern</td><td>2 months</td><td>Internship in automotive industry</td></tr>
         <tr><td>optiMeas</td><td>Intern</td><td>1 year</td><td>Internship in industrial IoT</td></tr>
       </table>
     </section>
+    <!-- Skills Section: List of skills -->
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li>HTML ⁄ CSS</li>
+        <li>HTML / CSS</li>
         <li>JavaScript</li>
         <li>Responsive Design</li>
       </ul>
     </section>
+    <!-- Projects Section: Table for projects -->
     <section id="projects">
       <h2>Projects</h2>
       <table class="info-table">
@@ -56,6 +65,7 @@
         <tr><td>Spotify ad muter</td><td>Automatically mutes Spotify ads</td></tr>
       </table>
     </section>
+    <!-- Link-tree Section: Social links, styled as a card -->
     <section id="link-tree">
       <h2>Link-tree</h2>
       <ul>
@@ -64,6 +74,7 @@
       </ul>
     </section>
   </main>
+  <!-- Main JavaScript for tab navigation and animation -->
   <script src="scripts.js"></script>
 </body>
 </html>

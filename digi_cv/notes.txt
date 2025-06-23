@@ -1,6 +1,7 @@
-animation ändern
-bug : too fast pressing on links shows multiple tab contents
-horizontal scrolling fix
-remove all shading
-window around all text for higher contrast
-js tutorial
+animation ändern 🟢                                                       
+bug : too fast pressing on links shows multiple tab contents 🟢           fix: animation lock
+horizontal scrolling fix 🟢
+remove all shading 🟢
+window around all text for higher contrast                                 
+js tutorial                                                                
+align the portrait with the bio block instead of the header                in development

@@ -1,13 +1,7 @@
-/* Mobile-first base styles (phones) */
-:root {
-  --banner-h: 3rem;
-  --tabs-h: 2.5rem;
-  --color-bg: #fff;
-  --color-alt: #f9f9f9;
-  --color-primary: #007acc;
-  --color-text: #333;
-  --shadow: rgba(0,0,0,0.1);
-}
+/* styles.css - Main stylesheet for digital CV */
+
+/* ========== Base and Layout ========== */
+/* Mobile-first base styles (phones). Box-sizing fix for layout bugs. */
 * {
   margin: 0;
   padding: 5px;
@@ -15,10 +9,11 @@
 }
 body {
   font-family: "Segoe UI", sans-serif;
-  color: #f3f3f3;
+  color: #111;
   line-height: 1.5;
   text-shadow: 0 1px 4px rgba(0,0,0,0.7);
   overflow-x: visible;
+  background: #2500BB;
 }
 html, body {
   min-width: 100vw;
@@ -28,6 +23,7 @@ html, body {
   overflow: auto;
 }
 body::before {
+  /* Overlay for background effect. Used for subtle darkening. */
   content: '';
   position: fixed;
   top: -20vh;
@@ -48,18 +44,21 @@ body > * {
   position: relative;
   z-index: 1;
 }
+
+/* ========== Banner/Header ========== */
+/* Fixed header for name and role. Always visible. */
 .banner {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: var(--banner-h);
-  background: #e2921a;
-  color: #fff;
+  height: 3rem;
+  background: #1A0082 !important;
+  color: #fff !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0.5rem 0.5rem;
-  box-shadow: 0 1px 4px var(--shadow);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   z-index: 1000;
   gap: 0.3rem;
 }
@@ -70,7 +69,7 @@ body > * {
   gap: 0.7rem;
 }
 .banner__name, .banner__role {
-  color: #fff;
+  color: #8800D1 !important;
   margin: 0;
 }
 .banner__name {
@@ -80,14 +79,17 @@ body > * {
 .banner__role {
   font-size: 1rem;
 }
+
+/* ========== Navigation Tabs ========== */
+/* Fixed navigation for section switching. Uses 'active' class for highlight. */
 .tabs {
   position: fixed;
-  top: var(--banner-h);
+  top: 3rem;
   left: 0; right: 0;
   height: auto;
-  min-height: var(--tabs-h);
-  background: #2c3e50;
-  box-shadow: 0 1px 3px var(--shadow);
+  min-height: 2.5rem;
+  background: #0E0048 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   z-index: 999;
   padding: 0.2rem 0;
   overflow-x: auto;
@@ -111,24 +113,31 @@ body > * {
 }
 .tabs__list a {
   text-decoration: none;
-  color: #fff;
+  color: #fff !important;
   padding: 0.3rem;
   transition: color 0.2s, border-bottom 0.2s;
 }
 .tabs__list a:hover,
 .tabs__list a.active {
-  color: var(--color-primary);
-  border-bottom: 2px solid #fff;
+  color: #8800D1 !important;
+  border-bottom: 2px solid #8800D1 !important;
 }
+
+/* ========== Main Content ========== */
+/* Main content area. Margin-top ensures it's below header/tabs. */
 main {
-  margin-top: calc(var(--banner-h) + var(--tabs-h) + 0.5rem);
+  margin-top: calc(3rem + 2.5rem + 0.5rem);
   padding: 0.5rem;
+  background: #fff !important;
 }
 main section {
   display: none;
   opacity: 1;
   transform: none;
   transition: none;
+  will-change: transform, opacity;
+  /* Remove any default background */
+  background: none !important;
 }
 main section.active {
   display: block;
@@ -143,12 +152,15 @@ main ul {
   list-style: disc inside;
   margin-top: 0.5rem;
 }
+
+/* ========== Info Table ========== */
+/* Table for experience/projects. Uses border and overlay for style. */
 .info-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.3rem;
   margin-bottom: 1rem;
-  border: 3px solid #40f53f;
+  border: 3px solid #8800D1 !important;
   border-radius: 0.5rem;
   overflow: hidden;
   position: relative;
@@ -163,6 +175,7 @@ main ul {
   overflow-x: auto;
 }
 .info-table::before {
+  /* Overlay for table background. Fixes readability on dark backgrounds. */
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -182,20 +195,26 @@ main ul {
 }
 .info-table th {
   background: transparent;
-  color: #40f52f;
+  color: #8800D1 !important;
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.03em;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 .info-table td {
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  color: #fff !important;
+  background: transparent;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+.t_h, .t_b {
+  color: #8800D1 !important;
+  border-bottom: 2px solid #8800D1 !important;
+}
+
+/* ========== Typography ========== */
+/* Headings and paragraphs. Color override for readability. */
+h1, h2, h3, h4, h5, h6, p {
+  color: #111 !important;
+  text-shadow: none !important;
 }
 h1 {
   font-size: 1.5rem;
@@ -209,9 +228,12 @@ h3 {
 p {
   margin: 0.5rem 0;
   font-size: 1rem;
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  color: #fff !important;
+  text-shadow: none !important;
 }
+
+/* ========== About Portrait ========== */
+/* Portrait card in About section. Responsive and styled. */
 .about-portrait {
   position: static;
   width: 100%;
@@ -243,17 +265,57 @@ p {
   text-align: center;
   text-shadow: 0 1px 4px rgba(0,0,0,0.7);
 }
+
+/* ========== About Section ========== */
+/* Responsive bio card. Uses max-width to avoid overlap with portrait. */
 #about {
   position: relative;
 }
+#about p {
+  /* The following line sets the max width of the bio window so it stops at the portrait + gap. */
+  /* The distance from the bio window to the viewport border is determined by: */
+  /* max-width: calc(100% - 240px - 2.5rem); */
+  /* 240px = portrait width, 2.5rem = gap between bio and portrait */
+  max-width: calc(100% - 240px - 2.5rem);
+  /* same shade as table cell, adjust as needed */
+  background: rgba(34, 0, 102, 0.85);
+  border: 3px solid #8800D1;
+  border-radius: 0.5rem;
+  color: #fff !important;
+  padding: 1rem 1.5rem;
+  margin: 1.2rem 0 1.2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  max-width: 90vw;
+  min-width: 180px;
+  width: fit-content;
+  font-size: 1.1rem;
+  text-align: left;
+}
 
+/* ========== Responsive Styles ========== */
+@media (min-width: 1024px) {
+  /* Desktop: larger padding and font for bio */
+  #about p {
+    max-width: calc(100% - 240px - 2.5rem);
+    font-size: 1.15rem;
+    padding: 1.2rem 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  /* Tablet/mobile: bio stretches more */
+  #about p {
+    max-width: calc(100% - 2.5rem);
+    font-size: 1.15rem;
+    padding: 1.2rem 2rem;
+  }
+}
 
-/* Laptop styles */
+/* Laptop styles: wider tabs, portrait, and padding. */
 @media (min-width: 600px) {
   .banner {
     flex-direction: row;
-    height: var(--banner-h);
-    padding: 0 var(--spacing);
+    height: 3rem;
+    padding: 0 1rem;
     gap: 1rem;
   }
   .tabs__list {
@@ -268,7 +330,8 @@ p {
     padding: 1.2rem;
   }
 }
-/* Desktop styles */
+
+/* Desktop styles: absolute portrait, larger headings, more padding. */
 @media (min-width: 1024px) {
   html, body {
     min-width: 100vw;
@@ -296,8 +359,8 @@ p {
   }
   .banner {
     flex-direction: row;
-    height: var(--banner-h);
-    padding: 0 var(--spacing);
+    height: 3rem;
+    padding: 0 1rem;
     gap: 1rem;
   }
   .tabs__list {
@@ -337,7 +400,7 @@ p {
   }
   main {
     padding: 2rem;
-    margin-top: calc(var(--banner-h) + var(--tabs-h));
+    margin-top: calc(3rem + 2.5rem);
   }
   main h2 {
     font-size: 1.25rem;
@@ -363,7 +426,10 @@ p {
     font-size: 1.25rem;
   }
 }
+
+/* ========== Small Screen Table ========== */
 @media (max-width: 600px) {
+  /* Table fits small screens, avoids overflow bugs. */
   .info-table {
     font-size: 0.95rem;
     border-radius: 0.5rem;
@@ -377,4 +443,126 @@ p {
     box-sizing: border-box;
     overflow-x: auto;
   }
+}
+
+/* ========== Hide Scrollbars ========== */
+/* Hide scrollbars for a cleaner look. */
+html, body, main, #about, .about-portrait {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar, main::-webkit-scrollbar, #about::-webkit-scrollbar, .about-portrait::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  height: 0 !important;
+  width: 0 !important;
+}
+
+/* ========== Color and Theme Overrides ========== */
+/* Ensures consistent color scheme. Fixes color bugs on some browsers. */
+body, main, main section {
+  background: #4400CC !important;
+  color: #fff !important;
+}
+.banner {
+  background: #1A0082 !important;
+  color: #fff !important;
+}
+.banner__name, .banner__role {
+  color: #8800D1 !important;
+}
+.tabs {
+  background: #0E0048 !important;
+}
+.tabs__list a {
+  color: #fff !important;
+}
+.tabs__list a.active, .tabs__list a:hover {
+  color: #8800D1 !important;
+  border-bottom: 2px solid #8800D1 !important;
+}
+.info-table {
+  border: 3px solid #8800D1 !important;
+}
+.info-table th {
+  color: #8800D1 !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #fff !important;
+  text-shadow: none !important;
+}
+p, .info-table td {
+  color: #fff !important;
+}
+.t_h, .t_b {
+  color: #8800D1 !important;
+  border-bottom: 2px solid #8800D1 !important;
+}
+
+body::before, #bg-fade-overlay {
+  display: none !important;
+}
+
+/* ========== Link-tree and Skills Section Styles ========== */
+/* Card style for social links and skills. Fixes overflow and color bugs. */
+#link-tree ul, #link-tree p {
+  display: inline-block;
+  background: rgba(34, 0, 102, 0.85);
+  border: 3px solid #8800D1;
+  border-radius: 0.5rem;
+  color: #fff !important;
+  padding: 1.2rem 2rem;
+  margin: 1.2rem 0 1.2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  max-width: 480px;
+  min-width: 180px;
+  width: fit-content;
+  font-size: 1.1rem;
+  text-align: left;
+}
+@media (min-width: 800px) {
+  #link-tree ul, #link-tree p {
+    max-width: 520px;
+    font-size: 1.15rem;
+    padding: 1.5rem 2.5rem;
+  }
+}
+@media (min-width: 1100px) {
+  #link-tree ul, #link-tree p {
+    max-width: 600px;
+  }
+}
+#skills ul, #skills p {
+  display: inline-block;
+  background: rgba(34, 0, 102, 0.85);
+  border: 3px solid #8800D1;
+  border-radius: 0.5rem;
+  color: #fff !important;
+  padding: 1.2rem 2rem;
+  margin: 1.2rem 0 1.2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  max-width: 480px;
+  min-width: 180px;
+  width: fit-content;
+  font-size: 1.1rem;
+  text-align: left;
+}
+@media (min-width: 800px) {
+  #skills ul, #skills p {
+    max-width: 520px;
+    font-size: 1.15rem;
+    padding: 1.5rem 2.5rem;
+  }
+}
+@media (min-width: 1100px) {
+  #skills ul, #skills p {
+    max-width: 600px;
+  }
+}
+#link-tree a {
+  color: #fff !important;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+#link-tree a:hover, #link-tree a:focus {
+  color: #8800D1 !important;
 }
